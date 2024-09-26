@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace Company.DAL.Models
 {
-    public class Department
+    public class Department : ModelBase
     {
-        public int Id { get; set; }
 
-      
-        public string? Code { get; set; }
-        public string? Name { get; set; }
 
-        public DateTime DataOfCreation {  get; set; } 
+
+        public string Code { get; set; } = null!;
+        public string Name { get; set; } = null!;
+
+        public string? Description { get; set; }
+        public DateOnly? CreatedDate { get; set; }
+
 
     }
 }

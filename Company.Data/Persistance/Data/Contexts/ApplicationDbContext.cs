@@ -11,8 +11,12 @@ namespace Company.DAL.Data.Contexts
 {
     internal class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext() : base()
+        {
+            
+        }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Server = .; Database = MVCAplication; Trusted_Connection = True;");
+        => optionsBuilder.UseSqlServer("Server = .; Database = MVCAplication; Trusted_Connection = True; TrustServerCertificate = True;");
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -16,7 +16,10 @@ namespace Company.DAL.Data.Configurations
             //Fluent Apis For "Deepartment" Entites
             builder.Property(D => D.Id).UseIdentityColumn(10, 10);
             builder.Property(D => D.Code).HasColumnType("varchar").HasMaxLength(50).IsRequired();
-            builder.Property(D => D.Name).HasColumnType("varchar").HasMaxLength(50).IsRequired();
+            builder.Property(D => D.Name).HasColumnType("varchar").HasMaxLength(20).IsRequired();
+            builder.Property(D => D.CreatedOn).HasDefaultValueSql("GETDATE()");
+            builder.Property(D => D.LastModifiedOn).HasComputedColumnSql("Convert(date,GETDATE())");
+
 
         }
     }
